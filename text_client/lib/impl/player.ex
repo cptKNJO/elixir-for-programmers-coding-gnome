@@ -39,10 +39,15 @@ defmodule TextClient.Impl.Player do
     [
       "Word so far: ",
       tally.letters |> Enum.join(" "),
-      "   turns left: ",
-      tally.turns_left |> to_string,
-      "   used so far: ",
-      tally.used |> Enum.join(", ")
+      IO.ANSI.format([
+        :green,
+        "  (",
+        "turns left: ",
+        tally.turns_left |> to_string,
+        " used so far: ",
+        tally.used |> Enum.join(", "),
+        ")"
+      ])
     ]
   end
 
