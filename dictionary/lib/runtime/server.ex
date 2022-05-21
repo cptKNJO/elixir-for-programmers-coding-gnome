@@ -4,8 +4,9 @@ defmodule Dictionary.Runtime.Server do
   @me __MODULE__
   alias Dictionary.Impl.Words
 
-  @spec start_link() :: {:ok, t}
-  def start_link() do
+  use Agent
+
+  def start_link(_) do
     Agent.start_link(&Words.word_list/0, name: @me)
   end
 
