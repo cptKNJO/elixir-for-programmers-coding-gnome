@@ -11,3 +11,10 @@ This is the new page.
         Words so far: <%= @tally.letters |> Enum.join(" ") %>
     </p>
 </div>
+
+<%= form_for @conn, Routes.hangman_path(@conn, :update), [as: "make_move", method: "put"], fn f -> %>
+  <label>
+    Guess: <%= text_input f, :guess %>
+  </label>
+  <%= submit "Make a move" %>
+<% end %>
