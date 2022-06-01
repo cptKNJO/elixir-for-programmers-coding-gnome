@@ -9,7 +9,7 @@ defmodule B1Web.HangmanController do
     game = Hangman.new_game()
     tally = Hangman.tally(game)
 
-    put_session(conn, "game", game)
+    put_session(conn, :game, game)
 
     render(conn, "new.html", tally: tally)
   end
