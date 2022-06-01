@@ -27,6 +27,6 @@ defmodule B1Web.HangmanController do
       |> get_session(:game)
       |> Hangman.tally()
 
-    render(conn, "new.html", tally: tally)
+    render(conn, "game.html", tally: tally)
   end
 end
